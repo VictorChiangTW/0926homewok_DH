@@ -10,37 +10,28 @@ a = int(a, 16)
 b = input("enter b in hexadecimal: ") 
 b = int(b, 16)
 
-start_timeA = time.time()
-A = pow(g, a, p)
-end_timeA = time.time()
-TA = str(float(end_timeA - start_timeA) * 1000.0) + 'ms'
+
+def KandKT(g , k, p):
+  start_time = time.time()
+  K = pow(g, k, p)
+  end_time = time.time()
+  TK = str(float(end_time -  start_time) * 1000.0) + 'ms'
+  return(K, TK)
+
+
+A, TA = KandKT(g, a, p)
 print('A: ', A)
 
 
-start_timeB = time.time()
-B = pow(g, b, p)
-end_timeB = time.time()
-TB = str(float(end_timeB - start_timeB) * 1000.0) + 'ms'
+B, TB = KandKT(g, b, p)
 print('B: ', B)
 
 print("TA: " + TA)
 print("TB: " + TB)
 
-start_timeKA = time.time()
-KA = pow(B, a, p)
-end_timeKA = time.time()
-TKA = str(float(end_timeKA - start_timeKA) * 1000.0) + 'ms'
-
-
-
-start_timeKB = time.time()
-KB = pow(A, b, p)
-end_timeKB = time.time()
-TKB = str(float(end_timeKB - start_timeKB) * 1000.0) + 'ms'
-
+KA, TKA = KandKT(B, a, p)
+KB, TKB = KandKT(A, b, p)
 
 print("KA: " + str(KA) + '\n', "KB: " + str(KB))
-
 print("TKA: " + TKA)
-
 print("TKB: " + TKB)
